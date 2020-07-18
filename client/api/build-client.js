@@ -1,10 +1,13 @@
 import axios from 'axios';
 
-export default ({ req }, service) => {
+export default ({ req }) => {
   if (typeof window === 'undefined') {
     return axios.create({
-      baseURL: `http://${service}:3000`,
-      headers: req.headers,
+      baseURL: `http://ingress-nginx-controller.kube-system.svc.cluster.local`,
+      headers: {
+        Host: 'ticketing.dev',
+        ...req.headers,
+      },
     });
   } else {
     return axios.create({
