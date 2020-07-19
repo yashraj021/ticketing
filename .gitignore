@@ -2,3 +2,5 @@ auth/node_modules
 client/node_modules
 client/.next
 common/.git
+common/node_modules
+common/.gitignore
