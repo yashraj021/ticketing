@@ -5,6 +5,7 @@ import {
   validateRequest,
   requireAuth,
   NotAuthorizedError,
+  BadRequestError,
 } from '@ystickets/common';
 import { Ticket } from '../models/ticket';
 import { TicketUpdatedPublisher } from '../events/publisher/ticket-updated-publisher';
@@ -28,6 +29,10 @@ router.put(
 
     if (!ticket) {
       throw new NotFoundError();
+    }
+
+    if (ticket.orderId) {
+      throw new BadRequestError('Ticket is reserved');
     }
 
     if (ticket.userId !== req.currentUser!.id) {
