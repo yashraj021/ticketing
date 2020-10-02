@@ -16,6 +16,7 @@ const start = async () => {
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID must defined!');
   }
+  console.log(process.env.NATS_CLIENT_ID);
 
   if (!process.env.NATS_URL) {
     throw new Error('NATS_URL must defined!');

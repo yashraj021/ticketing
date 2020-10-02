@@ -5,7 +5,7 @@ import { natsWrapper } from '../../nats-wrapper';
 import { Ticket } from '../../models/ticket';
 
 it('returns a 404 if provided id doesnt exist', async () => {
-  const id = new mongoose.Types.ObjectId().toHexString();
+  const id = mongoose.Types.ObjectId().toHexString();
 
   await request(app)
     .put(`/api/tickets/${id}`)
@@ -18,7 +18,7 @@ it('returns a 404 if provided id doesnt exist', async () => {
 });
 
 it('returns a 401 if user is not authenticated', async () => {
-  const id = new mongoose.Types.ObjectId().toHexString();
+  const id = mongoose.Types.ObjectId().toHexString();
 
   await request(app)
     .put(`/api/tickets/${id}`)
