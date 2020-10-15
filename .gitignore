@@ -9,3 +9,4 @@ nats-test/node_modules
 orders/node_modules
 expiration/node_modules
 expiration/.gitignore
+payments/node_modules
